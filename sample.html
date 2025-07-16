@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HVAC Services</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff;
+      color: #333;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #222;
+      margin-bottom: 1rem;
+    }
+
+    p.description {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .stats {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .stat-item {
+      color: #00a9b9;
+    }
+
+    .stat-item h2 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .stat-item p {
+      margin: 5px 0 0;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    @media (min-width: 768px) {
+      .stats {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+
+      .stat-item {
+        flex: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Why Choose Our HVAC Service Solutions?</h1>
+    <p class="description">
+      Our team’s extensive track record and numerous certifications speaks volumes about our commitment to delivering exceptional HVAC services.
+    </p>
+
+    <div class="stats">
+      <div class="stat-item">
+        <h2 class="counter" data-target="150">0</h2>
+        <p>Air Conditioning Install and Repairs per week</p>
+      </div>
+      <div class="stat-item">
+        <h2 class="counter" data-target="100">0</h2>
+        <p>Plus Technicians</p>
+      </div>
+      <div class="stat-item">
+        <h2 class="counter" data-target="250">0</h2>
+        <p>Indoor Air Services per week</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const counters = document.querySelectorAll('.counter');
+    const speed = 100; // smaller = faster
+
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = Math.ceil(target / speed);
+
+        if (count < target) {
+          counter.innerText = count + increment;
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+
+      updateCount();
+    });
+  </script>
+
+</body>
+</html>
